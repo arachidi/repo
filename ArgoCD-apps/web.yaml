@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-web-deploy
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ArgoCD-apps/web
+    repoURL: https://github.com/vkatrychenko/vkatrychenko.github.io.git
+    targetRevision: HEAD
