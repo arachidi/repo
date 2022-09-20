@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-web-deploy
+  name: web-2
   labels:
-    app: my-k8s-app
+    app: web
 spec:
   selector:
     matchLabels:
-      project: test
+      project: http-web
   template:
     metadata:
       labels:
-        project: test
+        project: http-web
     spec:
       containers:
-        - name: test-1
+        - name: web1
           image: arachidi/myappk8s:latest
           ports: 
             - containerPort: 80
